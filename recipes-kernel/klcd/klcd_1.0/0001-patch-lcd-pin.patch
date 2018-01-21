@@ -1,0 +1,24 @@
+diff --git a/klcd.h b/klcd.h
+index 236c97b..e198015 100644
+--- a/klcd.h
++++ b/klcd.h
+@@ -19,13 +19,13 @@
+ 
+ // ******** LCD Pin Configuration *****************************************************************
+ 
+-#define LCD_RS_PIN_NUMBER	67  // LCD_RS: P8_8  (GPIO pin 67)
+-#define LCD_E_PIN_NUMBER	68  // LCD_E:  P8_10 (GPIO pin 68)
++#define LCD_RS_PIN_NUMBER	2  // LCD_RS: P8_8  (GPIO pin 67)
++#define LCD_E_PIN_NUMBER	3  // LCD_E:  P8_10 (GPIO pin 68)
+ 
+-#define LCD_DB4_PIN_NUMBER	65  // LCD_DB4: P8_18 (GPIO pin 65)
+-#define LCD_DB5_PIN_NUMBER	46  // LCD_DB5: P8_16 (GPIO pin 46)
+-#define LCD_DB6_PIN_NUMBER	26  // LCD_DB6: P8_14 (GPIO pin 26)
+-#define LCD_DB7_PIN_NUMBER	44  // LCD_DB7: P8_12 (GPIO pin 44)
++#define LCD_DB4_PIN_NUMBER	64  // LCD_DB4: P8_18 (GPIO pin 65)
++#define LCD_DB5_PIN_NUMBER	65  // LCD_DB5: P8_16 (GPIO pin 46)
++#define LCD_DB6_PIN_NUMBER	66  // LCD_DB6: P8_14 (GPIO pin 26)
++#define LCD_DB7_PIN_NUMBER	67  // LCD_DB7: P8_12 (GPIO pin 44)
+ 
+ 
+ // ******** LCD Constants ************************************************************************
