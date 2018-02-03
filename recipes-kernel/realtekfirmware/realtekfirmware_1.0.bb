@@ -7,7 +7,7 @@ FILESEXTRAPATHS_append_nanopi-neo := "${THISDIR}/${PN}_${PV}:"
 SRC_URI = "file://rtl8188eufw.bin;name=rtl8188eu"
 SRC_URI[rtl8188eu.md5] = "aaef52a47852e599cbff63a3e7f96a94"
 
-COMPATIBLE_MACHINE = "nanopi-neo"
+COMPATIBLE_MACHINE = "nanopineo"
 
 PR = "r1"
 S = "${WORKDIR}"

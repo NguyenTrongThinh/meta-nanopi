@@ -1,0 +1,77 @@
+diff --git a/arch/arm/boot/dts/sun8i-h3-nanopi.dtsi b/arch/arm/boot/dts/sun8i-h3-nanopi.dtsi
+index 7646e33..0ab633c 100644
+--- a/arch/arm/boot/dts/sun8i-h3-nanopi.dtsi
++++ b/arch/arm/boot/dts/sun8i-h3-nanopi.dtsi
+@@ -75,6 +75,16 @@
+ 		};
+ 	};
+ 
++	buzzer {
++		compatible = "gpio-buzzers";
++		pinctrl-names = "default";
++		pinctrl-0 = <&buzzer_npi>;
++		status = "okay";
++		buzzer-gpios = <&pio 6 11 GPIO_ACTIVE_LOW>;
++		freq = <16>;
++		repeat = <4>;
++	};
++
+ 	r_gpio_keys {
+ 		compatible = "gpio-keys";
+ 		input-name = "k1";
+@@ -112,6 +122,22 @@
+ 		pins = "PA10";
+ 		function = "gpio_out";
+ 	};
++	leds_pcd8544: light_pins@0 {
++		pins = "PA0";
++		function = "gpio_out";
++	};
++	reset_pcd8544: reset_pins@0 {
++		pins = "PA2";
++		function = "gpio_out";
++	};
++	dc_pcd8544: dc_pins@0 {
++		pins = "PA3";
++		function = "gpio_out";
++	};
++	buzzer_npi: buzzer_pin@0 {
++		pins = "PG11";
++		function = "gpio_out";
++	};
+ };
+ 
+ &r_pio {
+@@ -132,6 +158,32 @@
+ 	status = "okay";
+ };
+ 
++&i2c0 {
++	status = "disabled";
++	hd44780@27 {
++			compatible = "hitachi,hd44780";
++			reg = <0x27>;
++	};
++};
++
+ &usbphy {
+ 	status = "okay";
+ };
++
++&spi0 {
++	status = "okay";
++	pcd8544@0 {
++		compatible = "philips,pdc8544";
++		pinctrl-names = "default";
++		pinctrl-0 = <&leds_pcd8544>, <&reset_pcd8544>, <&dc_pcd8544>;
++		reg = <0>;
++		status = "okay";
++		spi-max-frequency = <4000000>;
++		buswidth = <8>;
++		fps = <24>;
++		reset-gpios = <&pio 0 2 GPIO_ACTIVE_LOW>;
++		led-gpios = <&pio 0 0 GPIO_ACTIVE_HIGH>;
++		dc-gpios = <&pio  0 3 GPIO_ACTIVE_HIGH>;
++	};
++};
++
