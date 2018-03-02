@@ -1,0 +1,32 @@
+From 1769aac602aa5119c1b5ba3201eba43b621d5611 Mon Sep 17 00:00:00 2001
+From: ThinhNguyen <nguyentrongthinhit@gmail.com>
+Date: Sun, 4 Feb 2018 14:28:20 +0700
+Subject: [PATCH 1/2] Add eMMC Device Tree
+
+Signed-off-by: ThinhNguyen <nguyentrongthinhit@gmail.com>
+---
+ arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts b/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts
+index a6e6191..8fe624d 100644
+--- a/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts
++++ b/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts
+@@ -118,6 +118,14 @@
+ 		interrupt-names = "host-wake";
+ 	};
+ };
++&mmc2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&mmc2_8bit_pins>;
++	bus-width = <8>;
++	non-removable;
++	vmmc-supply = <&reg_vcc3v3>;
++	status = "okay";
++};
+ 
+ &ohci1 {
+ 	status = "okay";
+-- 
+2.7.4
+

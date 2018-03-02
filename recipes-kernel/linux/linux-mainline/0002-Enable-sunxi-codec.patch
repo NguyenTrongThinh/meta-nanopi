@@ -1,0 +1,32 @@
+From eacac7c29f6fdb3c2323b3907264731e171cdb68 Mon Sep 17 00:00:00 2001
+From: ThinhNguyen <nguyentrongthinhit@gmail.com>
+Date: Fri, 9 Feb 2018 21:08:50 +0700
+Subject: [PATCH 2/2] Enable sunxi codec
+
+Signed-off-by: ThinhNguyen <nguyentrongthinhit@gmail.com>
+---
+ arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts b/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts
+index 8fe624d..a681420 100644
+--- a/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts
++++ b/arch/arm/boot/dts/sun8i-h3-nanopi-m1-plus.dts
+@@ -126,7 +126,13 @@
+ 	vmmc-supply = <&reg_vcc3v3>;
+ 	status = "okay";
+ };
+-
++&codec {
++	allwinner,audio-routing =
++		"Line Out", "LINEOUT",
++		"MIC1", "Mic",
++		"Mic",  "MBIAS";
++	status = "okay";
++};
+ &ohci1 {
+ 	status = "okay";
+ };
+-- 
+2.7.4
+

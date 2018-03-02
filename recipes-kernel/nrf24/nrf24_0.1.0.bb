@@ -17,5 +17,5 @@ inherit module
 EXTRA_OEMAKE_append_task-install = " -C ${STAGING_KERNEL_DIR} M=${S}"
 EXTRA_OEMAKE += "KERNEL_DIR=${STAGING_KERNEL_DIR}"
 
-COMPATIBLE_MACHINE = "(nanopi-neo)"
+COMPATIBLE_MACHINE = "(nanopi-neo|nanopi-neo-m1-plus)"
 KERNEL_MODULE_AUTOLOAD = "nrf24"
